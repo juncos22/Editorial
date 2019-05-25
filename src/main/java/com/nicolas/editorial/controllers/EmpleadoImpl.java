@@ -55,6 +55,7 @@ public class EmpleadoImpl implements Dao<Empleado> {
     public void delete(String filter) throws ClassNotFoundException, SQLException {
         cmd = c.open().prepareStatement("delete from empleado where dni = ?");
         cmd.setString(1, filter); 
+        cmd.executeUpdate();
     }
 
     @Override

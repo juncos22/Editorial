@@ -32,6 +32,7 @@ public class SucursalesForm extends javax.swing.JFrame {
     
     public SucursalesForm() {
         initComponents();
+        this.setLocationRelativeTo(null); 
         mostrarSucursales();
         cargarEmpleados();
         cargarRevistas();

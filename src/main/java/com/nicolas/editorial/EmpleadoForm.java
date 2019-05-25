@@ -27,6 +27,7 @@ public class EmpleadoForm extends javax.swing.JFrame {
 
     public EmpleadoForm() {
         initComponents();
+        this.setLocationRelativeTo(null);
         mostrarEmpleados();
     }
 
@@ -42,12 +43,19 @@ public class EmpleadoForm extends javax.swing.JFrame {
     }
 
     private void limpiar() {
-        txtDni.setText("");
-        txtNombre.setText("");
-        txtTelefono.setText("");
-        txtDireccion.setText("");
+        txtDni4.setText("");
+        txtNombre4.setText("");
+        txtTelefono4.setText("");
+        txtDireccion4.setText("");
 
-        txtDni.requestFocus();
+        txtDni4.requestFocus();
+        
+        txtDniBuscar.setText("");
+        txtNombreBuscar.setText("");
+        txtTelefonoBuscar.setText("");
+        txtDireccionBuscar.setText("");
+        
+        txtDniBuscar.setEditable(true); 
     }
 
     /**
@@ -59,111 +67,129 @@ public class EmpleadoForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        txtDni = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtTelefono = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtDireccion = new javax.swing.JTextField();
-        btnRegistrar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        txtDni4 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        txtNombre4 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        txtTelefono4 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        txtDireccion4 = new javax.swing.JTextField();
+        btnRegistrar4 = new javax.swing.JButton();
+        btnCancelar4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmpleados = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        txtDniBuscar = new javax.swing.JTextField();
+        btnActualizar = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        txtNombreBuscar = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        txtTelefonoBuscar = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        txtDireccionBuscar = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(62, 79, 141));
+        jPanel6.setBackground(new java.awt.Color(62, 79, 141));
 
-        jLabel2.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jLabel2.setText("DNI: ");
+        jLabel18.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel18.setText("DNI: ");
 
-        txtDni.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtDni4.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jLabel3.setText("Nombre: ");
+        jLabel19.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel19.setText("Nombre: ");
 
-        txtNombre.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtNombre4.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jLabel4.setText("Telefono: ");
+        jLabel20.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel20.setText("Telefono: ");
 
-        txtTelefono.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtTelefono4.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jLabel5.setText("Direccion: ");
+        jLabel21.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel21.setText("Direccion: ");
 
-        txtDireccion.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtDireccion4.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
 
-        btnRegistrar.setText("Registrar Empleado");
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrar4.setText("Registrar Empleado");
+        btnRegistrar4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
 
-        btnCancelar.setText("Cancelar Operacion");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar4.setText("Cancelar Operacion");
+        btnCancelar4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                    .addComponent(txtDireccion)
-                    .addComponent(txtTelefono)
-                    .addComponent(txtDni)
-                    .addComponent(txtNombre)
-                    .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE))
-                .addContainerGap(39, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel21))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtDireccion4, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                            .addComponent(txtTelefono4)
+                            .addComponent(txtDni4)
+                            .addComponent(txtNombre4)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCancelar4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegistrar4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(txtDni4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(txtNombre4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(txtTelefono4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(txtDireccion4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
-                .addComponent(btnRegistrar)
+                .addComponent(btnRegistrar4)
                 .addGap(18, 18, 18)
-                .addComponent(btnCancelar)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addComponent(btnCancelar4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 346));
 
         jPanel2.setBackground(new java.awt.Color(94, 103, 136));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,63 +204,221 @@ public class EmpleadoForm extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblEmpleados);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 33, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 530, 270));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 570, 290));
 
         jLabel1.setFont(new java.awt.Font("Noto Sans", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Registro de empleados");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 340, 40));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 340, 40));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Nuevo", jPanel7);
+
+        jPanel8.setBackground(new java.awt.Color(56, 69, 114));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel22.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel22.setText("DNI: ");
+        jPanel8.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 30));
+
+        txtDniBuscar.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jPanel8.add(txtDniBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 190, -1));
+
+        btnActualizar.setText("Actualizar datos");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+        jPanel8.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 150, -1));
+
+        jLabel23.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel23.setText("Nombre:");
+        jPanel8.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 30));
+
+        txtNombreBuscar.setEditable(false);
+        txtNombreBuscar.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jPanel8.add(txtNombreBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 190, -1));
+
+        jLabel24.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel24.setText("Telefono:");
+        jPanel8.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 30));
+
+        txtTelefonoBuscar.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jPanel8.add(txtTelefonoBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 190, -1));
+
+        jLabel25.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel25.setText("Direccion:");
+        jPanel8.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, 30));
+
+        txtDireccionBuscar.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jPanel8.add(txtDireccionBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 190, -1));
+
+        btnBuscar.setText("Buscar empleado");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel8.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 150, -1));
+
+        btnEliminar.setText("Eliminar datos");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel8.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 150, -1));
+
+        jTabbedPane2.addTab("Cambiar datos", jPanel8);
+
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        if (txtDni.getText().trim().equalsIgnoreCase("")
-                || txtNombre.getText().trim().equalsIgnoreCase("")
-                || txtTelefono.getText().trim().equalsIgnoreCase("")
-                || txtDireccion.getText().trim().equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(null, "Complete TODOS los campos", 
-                    "Advertencia", JOptionPane.WARNING_MESSAGE);
-            
-            txtDni.requestFocus();
+        if (txtDni4.getText().trim().equalsIgnoreCase("")
+            || txtNombre4.getText().trim().equalsIgnoreCase("")
+            || txtTelefono4.getText().trim().equalsIgnoreCase("")
+            || txtDireccion4.getText().trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Complete TODOS los campos",
+                "Advertencia", JOptionPane.WARNING_MESSAGE);
+
+            txtDni4.requestFocus();
         }else {
             try {
                 String dni, nombre, telefono, direccion;
-                dni = txtDni.getText();
-                nombre = txtNombre.getText();
-                telefono = txtTelefono.getText();
-                direccion = txtDireccion.getText();
+                dni = txtDni4.getText();
+                nombre = txtNombre4.getText();
+                telefono = txtTelefono4.getText();
+                direccion = txtDireccion4.getText();
                 Empleado emp = new Empleado(dni, nombre, telefono, direccion);
                 impl.add(emp);
-                
-                JOptionPane.showMessageDialog(null, "Empleado registrado", 
+
+                JOptionPane.showMessageDialog(null, "Empleado registrado",
                     "INFO", JOptionPane.INFORMATION_MESSAGE);
-                
+
                 mostrarEmpleados();
                 limpiar();
             } catch (ClassNotFoundException | SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), 
+                JOptionPane.showMessageDialog(null, ex.getMessage(),
                     "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        limpiar();
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        if (txtDniBuscar.getText().trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese un DNI valido",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            
+            txtDniBuscar.requestFocus();
+        }else {
+            try {
+                String dni = txtDniBuscar.getText();
+                impl = new EmpleadoImpl();
+                Empleado emp = impl.getOne(dni);
+                
+                if (emp != null) {
+                    txtNombreBuscar.setText(emp.getNombre());
+                    txtTelefonoBuscar.setText(emp.getTelefono());
+                    txtDireccionBuscar.setText(emp.getDireccion()); 
+                    
+                    txtDniBuscar.setEditable(false); 
+                }else {
+                    JOptionPane.showMessageDialog(null, "Ingrese un DNI valido",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+                    
+                    txtDniBuscar.requestFocus();
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(),
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        if (txtDniBuscar.getText().trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese un DNI valido",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            
+            txtDniBuscar.requestFocus();
+        }else {
+            
+            try {
+                String telefono, direccion, dni;
+                dni = txtDniBuscar.getText();
+                telefono = txtTelefonoBuscar.getText();
+                direccion = txtDireccionBuscar.getText();
+                impl = new EmpleadoImpl();
+                Empleado emp = new Empleado(dni, "", telefono, direccion);
+                impl.edit(emp);
+                
+                JOptionPane.showMessageDialog(null, "Empleado actualizado",
+                    "INFO", JOptionPane.INFORMATION_MESSAGE);
+                
+                mostrarEmpleados();
+                limpiar();
+            } catch (ClassNotFoundException | SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(),
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (txtDniBuscar.getText().trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese un DNI valido",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            
+            txtDniBuscar.requestFocus();
+        }else {
+            try {
+                String dni = txtDniBuscar.getText();
+                
+                impl = new EmpleadoImpl();
+                Empleado emp = impl.getOne(dni);
+                
+                if (emp != null) {
+                    impl.delete(dni);
+                    JOptionPane.showMessageDialog(null, "Empleado eliminado",
+                    "INFO", JOptionPane.INFORMATION_MESSAGE);
+                
+                    mostrarEmpleados();
+                    limpiar();
+                }else {
+                    JOptionPane.showMessageDialog(null, "El empleado no existe",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+                }
+
+            } catch (ClassNotFoundException | SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(),
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,20 +457,34 @@ public class EmpleadoForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCancelar4;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnRegistrar4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable tblEmpleados;
-    private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtDni;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtDireccion4;
+    private javax.swing.JTextField txtDireccionBuscar;
+    private javax.swing.JTextField txtDni4;
+    private javax.swing.JTextField txtDniBuscar;
+    private javax.swing.JTextField txtNombre4;
+    private javax.swing.JTextField txtNombreBuscar;
+    private javax.swing.JTextField txtTelefono4;
+    private javax.swing.JTextField txtTelefonoBuscar;
     // End of variables declaration//GEN-END:variables
 }

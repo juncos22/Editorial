@@ -12,8 +12,6 @@ import com.nicolas.editorial.models.Revista;
 import com.nicolas.editorial.models.TmRevista;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,6 +29,7 @@ public class RevistaForm extends javax.swing.JFrame {
     
     public RevistaForm() {
         initComponents();
+        this.setLocationRelativeTo(null);
         cargarRevistas();
         cargarNumRevistas();
     }
