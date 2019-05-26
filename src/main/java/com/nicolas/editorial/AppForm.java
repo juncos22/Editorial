@@ -42,6 +42,7 @@ public class AppForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         menuBar.setBackground(new java.awt.Color(26, 53, 113));
+        menuBar.setForeground(new java.awt.Color(51, 255, 255));
         menuBar.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
 
         fileMenu.setMnemonic('f');
