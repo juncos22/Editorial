@@ -12,6 +12,8 @@ import com.nicolas.editorial.models.Revista;
 import com.nicolas.editorial.models.TmRevista;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,53 +25,60 @@ public class RevistaForm extends javax.swing.JFrame {
     /**
      * Creates new form RevistaForm
      */
-    
     private RevistaImpl impl;
     private NumRevistaImpl impl2;
-    
+
     public RevistaForm() {
         initComponents();
         this.setLocationRelativeTo(null);
         cargarRevistas();
         cargarNumRevistas();
     }
-    
-    private void limpiar(){
+
+    private void limpiar() {
         txtTitulo.setText("");
         txtPeriodo.setText("");
         cboTipo.setSelectedIndex(0);
-        cboN_revista.setSelectedIndex(0); 
-        
+        cboN_revista.setSelectedIndex(0);
+
         txtTitulo.requestFocus();
+
+        txtTitulo1.setText("");
+        txtPeriodo1.setText("");
+        cboTipo1.setSelectedIndex(0);
+        cboN_revista1.setSelectedIndex(0);
+
     }
-    
-    private void cargarRevistas(){
+
+    private void cargarRevistas() {
         try {
             impl = new RevistaImpl();
             List<Revista> revistas = impl.getAll();
             TmRevista tm = new TmRevista(revistas);
-            tblRevistas.setModel(tm); 
+            tblRevistas.setModel(tm);
         } catch (ClassNotFoundException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), 
-                    "ERROR", JOptionPane.ERROR_MESSAGE); 
+            JOptionPane.showMessageDialog(null, ex.getMessage(),
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    private void cargarNumRevistas(){
+
+    private void cargarNumRevistas() {
         try {
             impl2 = new NumRevistaImpl();
-            
+
             cboN_revista.removeAllItems();
-            
-            for (NumRevista nr : impl2.getAll()) { 
+            cboN_revista1.removeAllItems();
+
+            for (NumRevista nr : impl2.getAll()) {
                 cboN_revista.addItem(nr);
+                cboN_revista1.addItem(nr);
             }
         } catch (ClassNotFoundException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), 
-                    "ERROR", JOptionPane.ERROR_MESSAGE); 
+            JOptionPane.showMessageDialog(null, ex.getMessage(),
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,6 +88,7 @@ public class RevistaForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JTextField();
@@ -90,10 +100,24 @@ public class RevistaForm extends javax.swing.JFrame {
         btnRegistrar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         cboN_revista = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRevistas = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        txtTitulo1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtPeriodo1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        cboTipo1 = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        cboN_revista1 = new javax.swing.JComboBox<>();
+        btnEliminar = new javax.swing.JButton();
+        btnCancelar2 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -104,28 +128,28 @@ public class RevistaForm extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
         jLabel1.setText("Titulo: ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 47, 60, 29));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 60, 29));
 
         txtTitulo.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
-        jPanel1.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 45, 170, -1));
+        jPanel1.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
         jLabel2.setText("Periodos: ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 98, 79, 29));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 79, 29));
 
         txtPeriodo.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
-        jPanel1.add(txtPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 96, 170, -1));
+        jPanel1.add(txtPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 170, -1));
 
         jLabel3.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
         jLabel3.setText("Tipo: ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 60, 29));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 60, 29));
 
         cboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Musica", "Moda", "Cocina", "Informatica", "Deporte", "Cine", "Variedades" }));
-        jPanel1.add(cboTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 147, 170, -1));
+        jPanel1.add(cboTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 170, -1));
 
         jLabel4.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
         jLabel4.setText("N° Revista: ");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 80, 29));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 80, 29));
 
         btnRegistrar.setText("Registrar Revista");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +157,7 @@ public class RevistaForm extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 245, 266, -1));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 266, -1));
 
         btnCancelar.setText("Cancelar Operacion");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -141,12 +165,12 @@ public class RevistaForm extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 290, 266, -1));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 266, -1));
 
         cboN_revista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cboN_revista, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 170, -1));
+        jPanel1.add(cboN_revista, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 170, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 350));
+        jTabbedPane1.addTab("Nueva", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(2, 14, 57));
 
@@ -171,8 +195,6 @@ public class RevistaForm extends javax.swing.JFrame {
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 610, 120));
-
         tblRevistas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -186,20 +208,106 @@ public class RevistaForm extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblRevistas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 590, 170));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Registro", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(17, 26, 60));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
+        jLabel6.setText("Titulo: ");
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 60, 29));
+
+        txtTitulo1.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
+        jPanel4.add(txtTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 170, -1));
+
+        jLabel7.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
+        jLabel7.setText("Periodos: ");
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 79, 29));
+
+        txtPeriodo1.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
+        jPanel4.add(txtPeriodo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 170, -1));
+
+        jLabel8.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
+        jLabel8.setText("Tipo: ");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 60, 29));
+
+        cboTipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Musica", "Moda", "Cocina", "Informatica", "Deporte", "Cine", "Variedades" }));
+        jPanel4.add(cboTipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 170, -1));
+
+        jLabel9.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
+        jLabel9.setText("N° Revista: ");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 80, 29));
+
+        cboN_revista1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(cboN_revista1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 170, -1));
+
+        btnEliminar.setText("Eliminar Revista");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 190, -1));
+
+        btnCancelar2.setText("Cancelar Operacion");
+        btnCancelar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelar2ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnCancelar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 266, -1));
+
+        btnBuscar.setText("Buscar Revista");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 190, -1));
+
+        btnActualizar.setText("Actualizar Revista");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 190, -1));
+
+        jTabbedPane1.addTab("Actualizar / Eliminar", jPanel4);
+
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        if (txtTitulo.getText().trim().equalsIgnoreCase("") || 
-                txtPeriodo.getText().trim().equalsIgnoreCase("")) {
-            
-            JOptionPane.showMessageDialog(null, "Complete TODOS los campos", 
+        if (txtTitulo.getText().trim().equalsIgnoreCase("")
+                || txtPeriodo.getText().trim().equalsIgnoreCase("")) {
+
+            JOptionPane.showMessageDialog(null, "Complete TODOS los campos",
                     "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
-            
+
             txtTitulo.requestFocus();
-        }else {
+        } else {
             try {
                 String titulo, tipo;
                 int periodos, n_revista;
@@ -208,18 +316,18 @@ public class RevistaForm extends javax.swing.JFrame {
                 periodos = Integer.parseInt(txtPeriodo.getText());
                 NumRevista nr = (NumRevista) cboN_revista.getSelectedItem();
                 n_revista = nr.getNumero();
-                
+
                 Revista rev = new Revista(titulo, periodos, tipo, n_revista);
-                
-                impl.add(rev); 
-                JOptionPane.showMessageDialog(null, "Revista registrada", 
-                    "INFO", JOptionPane.INFORMATION_MESSAGE);
-                
+
+                impl.add(rev);
+                JOptionPane.showMessageDialog(null, "Revista registrada",
+                        "INFO", JOptionPane.INFORMATION_MESSAGE);
+
                 cargarRevistas();
                 limpiar();
             } catch (ClassNotFoundException | SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), 
-                    "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, ex.getMessage(),
+                        "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -227,6 +335,105 @@ public class RevistaForm extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         limpiar();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (txtTitulo1.getText().trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese el titulo de la revista",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            txtTitulo1.requestFocus();
+        } else {
+            try {
+                String titulo = txtTitulo1.getText();
+                impl = new RevistaImpl();
+                Revista rev = impl.getOne(titulo);
+
+                if (rev != null) {
+                    impl.delete(rev.getTitulo());
+
+                    JOptionPane.showMessageDialog(null, "Revista eliminada",
+                            "INFO", JOptionPane.INFORMATION_MESSAGE);
+
+                    cargarRevistas();
+                    limpiar();
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se encontro la revista",
+                            "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(),
+                        "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnCancelar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar2ActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btnCancelar2ActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        if (txtTitulo1.getText().trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese el titulo de la revista",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            txtTitulo1.requestFocus();
+        } else {
+            try {
+                String titulo = txtTitulo1.getText();
+                impl = new RevistaImpl();
+                Revista rev = impl.getOne(titulo);
+
+                if (rev != null) {
+                    txtPeriodo1.setText(Integer.toString(rev.getPeriodicidad()));
+                    cboTipo1.setSelectedItem(rev.getTipo());
+
+                    cboN_revista1.setSelectedItem(rev);
+
+                    txtTitulo1.setEditable(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se encontro la revista",
+                            "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(),
+                        "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        if (txtTitulo1.getText().trim().equalsIgnoreCase("")
+                || txtPeriodo1.getText().trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese el titulo de la revista",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+
+            txtTitulo1.requestFocus();
+        } else {
+            try {
+                String titulo, tipo;
+                int periodo, n_revista;
+
+                titulo = txtTitulo1.getText();
+                tipo = cboTipo1.getSelectedItem().toString();
+                periodo = Integer.parseInt(txtPeriodo1.getText());
+                n_revista = Integer.parseInt(cboN_revista1.getSelectedItem().toString());
+
+                impl = new RevistaImpl();
+                Revista rev = new Revista(titulo, periodo, tipo, n_revista);
+
+                impl.edit(rev);
+
+                JOptionPane.showMessageDialog(null, "Revista actualizada",
+                        "INFO", JOptionPane.INFORMATION_MESSAGE);
+
+                limpiar();
+                cargarRevistas();
+
+            } catch (ClassNotFoundException | SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(),
+                        "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+
+        }
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,7 +446,7 @@ public class RevistaForm extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -264,20 +471,35 @@ public class RevistaForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCancelar2;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox<Object> cboN_revista;
+    private javax.swing.JComboBox<Object> cboN_revista1;
     private javax.swing.JComboBox<String> cboTipo;
+    private javax.swing.JComboBox<String> cboTipo1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblRevistas;
     private javax.swing.JTextField txtPeriodo;
+    private javax.swing.JTextField txtPeriodo1;
     private javax.swing.JTextField txtTitulo;
+    private javax.swing.JTextField txtTitulo1;
     // End of variables declaration//GEN-END:variables
 }

@@ -55,7 +55,7 @@ public class SucursalImpl implements Dao<Sucursal> {
 
     @Override
     public void delete(String filter) throws ClassNotFoundException, SQLException {
-        cmd = c.open().prepareStatement("delete from sucursal where codigo = ?");
+        cmd = c.open().prepareStatement("delete from sucursal where domicilio = ?");
         cmd.setString(1, filter); 
         
         cmd.executeUpdate();

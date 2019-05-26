@@ -41,14 +41,14 @@ public class RevistaImpl implements Dao<Revista> {
 
     @Override
     public void edit(Revista object) throws ClassNotFoundException, SQLException {
-        cmd = c.open().prepareStatement("update revista set titulo = ?, "
-                + "periodicidad = ?, tipo = ?, n_revista = ? where n_registro = ?");
-        cmd.setString(1, object.getTitulo());
-        cmd.setInt(2, object.getPeriodicidad());
-        cmd.setString(3, object.getTipo());
-        cmd.setInt(4, object.getN_revista());
-        cmd.setInt(5, object.getN_registro()); 
-
+        cmd = c.open().prepareStatement("update revista set periodicidad = ?, "
+                + "tipo = ?, n_revista = ? where titulo = ?");
+        
+        cmd.setInt(1, object.getPeriodicidad());
+        cmd.setString(2, object.getTipo());
+        cmd.setInt(3, object.getN_revista()); 
+        cmd.setString(5, object.getTitulo());
+        
         cmd.executeUpdate();
     }
 
@@ -70,7 +70,7 @@ public class RevistaImpl implements Dao<Revista> {
         Revista rev = null;
         
         if (rs.next()) {            
-            rev = new Revista(rs.getInt("n_registro"), rs.getString("titulo"), 
+            rev = new Revista(rs.getString("titulo"), 
                     rs.getInt("periodicidad"), rs.getString("tipo"), rs.getInt("n_revista"));
         }
         

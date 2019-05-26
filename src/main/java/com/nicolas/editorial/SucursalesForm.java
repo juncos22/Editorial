@@ -14,6 +14,8 @@ import com.nicolas.editorial.models.Sucursal;
 import com.nicolas.editorial.models.TmSucursal;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -114,6 +116,9 @@ public class SucursalesForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSucursales = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        txtDomicilioE = new javax.swing.JTextField();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -171,10 +176,12 @@ public class SucursalesForm extends javax.swing.JFrame {
         jTabbedPane1.addTab("Nueva", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(33, 42, 72));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Noto Sans", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Registro de Sucursales");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 12, 395, 34));
 
         tblSucursales.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -189,29 +196,22 @@ public class SucursalesForm extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblSucursales);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 110, 614, 219));
+
+        jLabel8.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jLabel8.setText("Domicilio: ");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 70, 27));
+
+        txtDomicilioE.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jPanel2.add(txtDomicilioE, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 220, -1));
+
+        btnEliminar.setText("Eliminar Sucursal");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 170, -1));
 
         jTabbedPane1.addTab("Ver registro", jPanel2);
 
@@ -254,6 +254,37 @@ public class SucursalesForm extends javax.swing.JFrame {
         limpiar();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (txtDomicilioE.getText().trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese el domicilio", 
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            
+            txtDomicilioE.requestFocus();
+        }else {
+            try {
+                String domicilio = txtDomicilioE.getText();
+                impl = new SucursalImpl();
+                Sucursal suc = impl.getOne(domicilio);
+                
+                if (suc != null) {
+                    impl.delete(suc.getDomicilio()); 
+                    JOptionPane.showMessageDialog(null, "Sucursal eliminada", 
+                    "INFO", JOptionPane.INFORMATION_MESSAGE);
+                    
+                    txtDomicilioE.setText(""); 
+                    
+                    mostrarSucursales();
+                }else {
+                    JOptionPane.showMessageDialog(null, "No se encontro la sucursal", 
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), 
+                    "ERROR", JOptionPane.ERROR_MESSAGE); 
+            }
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -290,6 +321,7 @@ public class SucursalesForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox<Object> cboEmpleado;
@@ -299,12 +331,14 @@ public class SucursalesForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblSucursales;
     private javax.swing.JTextField txtDomicilio;
+    private javax.swing.JTextField txtDomicilioE;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
